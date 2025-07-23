@@ -58,7 +58,7 @@ def plot_suvr_with_ci(df, save_plot=True):
     conditions = df['Condition'].unique()
     print(f"Plotting {len(conditions)} conditions: {conditions}")
     
-    # Set up the plot with larger size for better readability
+    # Set up the plot for better readability
     fig, ax = plt.subplots(figsize=(10, 6))
     
     # Define colors to match the reference plot
