@@ -35,7 +35,7 @@ def load_suvr_data(file_path):
         print(f"Successfully loaded SUVR data from {file_path}")
         print(f"Data shape: {df.shape}")
         print(f"Columns: {list(df.columns)}")
-        print(f"Conditions: {df['Condition'].unique()}")
+        print(f"Series: {df['Series'].unique()}")
         return df
     except Exception as e:
         print(f"Error loading data: {e}")
@@ -43,20 +43,20 @@ def load_suvr_data(file_path):
 
 def plot_suvr_with_ci(df, save_plot=True):
     """
-    Plot SUVR data with confidence intervals for each condition
+    Plot SUVR data with confidence intervals for each series
     
     Parameters:
     -----------
     df : pandas.DataFrame
-        SUVR data with columns: Condition, Time (years), y, CI
+        SUVR data with columns: Series, Time (weeks), measurement, CI
     figsize : tuple, default (12, 8)
         Figure size
     save_plot : bool, default True
         Whether to save the plot
     """
-    # Get unique conditions
-    conditions = df['Condition'].unique()
-    print(f"Plotting {len(conditions)} conditions: {conditions}")
+    # Get unique series
+    series = df['Series'].unique()
+    print(f"Plotting {len(series)} series: {series}")
     
     # Set up the plot for better readability
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -64,30 +64,34 @@ def plot_suvr_with_ci(df, save_plot=True):
     # Define colors to match the reference plot
     colors = ['#1f77b4', '#d62728', '#2ca02c', '#17a2b8', '#9467bd']  # Blue, Red, Green, Cyan, Purple
     
-    # Plot each condition
-    for i, condition in enumerate(conditions):
-        # Filter data for this condition
-        condition_data = df[df['Condition'] == condition].copy()
-        condition_data = condition_data.sort_values('Time (years)')
+    # Plot each series
+    for i, series_name in enumerate(series):
+        # Filter data for this series
+        series_data = df[df['Series'] == series_name].copy()
+        series_data = series_data.sort_values('Time (years)')
+        
+        print(f"  Plotting {series_name}: {len(series_data)} points")
+        print(f"    Time values: {series_data['Time (years)'].values}")
+        print(f"    Measurement values: {series_data['measurement'].values}")
         
         # Extract data
-        time = condition_data['Time (years)'].values
-        y_values = condition_data['y'].values
-        ci_values = condition_data['CI'].values
+        time = series_data['Time (years)'].values
+        measurements = series_data['measurement'].values
+        ci_values = series_data['CI'].values
         
         # Calculate upper and lower bounds
-        y_upper = y_values + ci_values
-        y_lower = y_values - ci_values
+        y_upper = measurements + ci_values
+        y_lower = measurements - ci_values
         
-        # Plot the main line with error bars
-        ax.errorbar(time*52, y_values, yerr=ci_values,
+        # Plot the main line with error bars (convert years to weeks)
+        ax.errorbar(time*52, measurements, yerr=ci_values,
                    marker='o', 
                    linewidth=3, 
                    markersize=8,
                    capsize=8,   # Length of error bar caps
                    capthick=2,  # Thickness of error bar caps
                    elinewidth=2, # Thickness of error bar lines
-                   label=condition,
+                   label=series_name,
                    color=colors[i % len(colors)])
     
     # Customize the plot to match reference with improved readability
@@ -102,7 +106,7 @@ def plot_suvr_with_ci(df, save_plot=True):
     
     # Set axis limits with some padding
     x_min, x_max = 0, df['Time (years)'].max()*52 + 26
-    y_min, y_max = df['y'].min(), df['y'].max()
+    y_min, y_max = df['measurement'].min(), df['measurement'].max()
     y_range = y_max - y_min
     
     ax.set_xlim(x_min - 0.1, x_max + 0.1)
@@ -129,23 +133,23 @@ def explore_suvr_data(df):
     """
     print("\n=== SUVR DATA EXPLORATION ===")
     print(f"Data shape: {df.shape}")
-    print(f"\nConditions: {df['Condition'].unique()}")
+    print(f"\nSeries: {df['Series'].unique()}")
     print(f"Time points: {sorted(df['Time (years)'].unique())}")
     
-    print(f"\nSummary by condition:")
-    for condition in df['Condition'].unique():
-        condition_data = df[df['Condition'] == condition]
-        print(f"\n{condition}:")
-        print(f"  Number of observations: {len(condition_data)}")
-        print(f"  Y range: {condition_data['y'].min():.4f} to {condition_data['y'].max():.4f}")
-        print(f"  Mean Y: {condition_data['y'].mean():.4f}")
-        print(f"  Mean CI: {condition_data['CI'].mean():.4f}")
+    print(f"\nSummary by series:")
+    for series_name in df['Series'].unique():
+        series_data = df[df['Series'] == series_name]
+        print(f"\n{series_name}:")
+        print(f"  Number of observations: {len(series_data)}")
+        print(f"  Measurement range: {series_data['measurement'].min():.4f} to {series_data['measurement'].max():.4f}")
+        print(f"  Mean measurement: {series_data['measurement'].mean():.4f}")
+        print(f"  Mean CI: {series_data['CI'].mean():.4f}")
 
 # Main execution
 if __name__ == "__main__":
     # Load SUVR data
     data_dir = Path("data/SUVR")
-    excel_file = data_dir / "SUVR_PRIME.xlsx"
+    excel_file = data_dir / "SUVR_PRIME_ADUCANUMAB.xlsx"
     
     if excel_file.exists():
         print(f"Loading SUVR data from {excel_file}")

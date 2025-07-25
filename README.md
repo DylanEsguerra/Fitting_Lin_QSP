@@ -26,4 +26,12 @@ The repository includes empirical data from the PRIME study showing SUVR (Standa
 
 ![SUVR Reduction from EMERGE and ENGAGE Studies](figures/empirical_data/EMERGE_ENGAGE_SUVR_Reduction.png)
 
-*Figure 2: SUVR change from baseline over time for EMERGE and ENGAGE Phase 3 clinical trials. Data shows placebo, low-dose, and high-dose Aducanumab treatment groups. Sample sizes (n) are displayed below each data point. Data from [Budd Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30), EMERGE and ENGAGE clinical trials.* 
+*Figure 2: SUVR change from baseline over time for EMERGE and ENGAGE Phase 3 clinical trials. Data shows placebo, low-dose, and high-dose Aducanumab treatment groups. Sample sizes (n) are displayed below each data point. Data from [Budd Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30), EMERGE and ENGAGE clinical trials.*
+
+![SUVR Reduction from Lecanemab Phase 2b Study](figures/empirical_data/LECANEMAB_Phase2b_SUVR_Reduction.png)
+
+*Figure 3: SUVR change from baseline over time for Lecanemab Phase 2b clinical trial. Data shows placebo and various dosing regimens (bi-weekly and monthly). Data from Swanson et al. (2021), Phase 2b clinical trial.*
+
+![SUVR Reduction from Lecanemab Phase 3 Study](figures/empirical_data/LECANEMAB_Phase3_SUVR_Reduction.png)
+
+*Figure 4: SUVR change from baseline over time for Lecanemab Phase 3 clinical trial. Data shows placebo and Lecanemab treatment groups. Data from van Dyck et al. (2022), Phase 3 clinical trial.* 
