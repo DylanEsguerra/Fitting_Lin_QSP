@@ -22,4 +22,8 @@ The repository includes empirical data from the PRIME study showing SUVR (Standa
 
 ![SUVR Reduction from PRIME Study](figures/empirical_data/PRIME_SUVR_Reduction.png)
 
-*Figure 1: SUVR change from baseline over time for different Aducanumab doses. Error bars represent 95% confidence intervals. Data from Extended Table 1 in Sevigny et al. (2016), PRIME clinical trial.* 
+*Figure 1: SUVR change from baseline over time for different Aducanumab doses. Error bars represent 95% confidence intervals. Data from Extended Table 1 in Sevigny et al. (2016), PRIME clinical trial.*
+
+![SUVR Reduction from EMERGE and ENGAGE Studies](figures/empirical_data/EMERGE_ENGAGE_SUVR_Reduction.png)
+
+*Figure 2: SUVR change from baseline over time for EMERGE and ENGAGE Phase 3 clinical trials. Data shows placebo, low-dose, and high-dose Aducanumab treatment groups. Sample sizes (n) are displayed below each data point. Data from [Budd Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30), EMERGE and ENGAGE clinical trials.* 
