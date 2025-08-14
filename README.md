@@ -9,11 +9,13 @@ The following table provides an overview of all anti-amyloid antibody clinical t
 | Drug | Study Name | Phase | Reference | Data File | Measure | Conditions |
 |------|------------|-------|-----------|-----------|---------|------------|
 | **Aducanumab** | PRIME | 1b | [Sevigny et al. (2016)](https://www.nature.com/articles/nature19323) | `SUVR_PRIME_ADUCANUMAB.xlsx` | SUVR change from baseline | Placebo, 1mg/kg, 3mg/kg, 6mg/kg, 10mg/kg |
-| **Aducanumab** | EMERGE | 3 | [Budd Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30) | `EMERGE_ADUCANUMAB.xlsx` | SUVR change from baseline | Placebo, low-dose, high-dose |
-| **Aducanumab** | ENGAGE | 3 | [Budd Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30) | `ENGAGE_ADUCANUMAB.xlsx` | SUVR change from baseline | Placebo, low-dose, high-dose |
+| **Aducanumab** | EMERGE | 3 | [Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30) | `EMERGE_ADUCANUMAB.xlsx` | SUVR change from baseline | Placebo, low-dose, high-dose |
+| **Aducanumab** | ENGAGE | 3 | [Haeberlein et al. (2022)](https://doi.org/10.14283/jpad.2022.30) | `ENGAGE_ADUCANUMAB.xlsx` | SUVR change from baseline | Placebo, low-dose, high-dose |
 | **Lecanemab** | Phase 2b | 2b | Swanson et al. (2021) | `Phase_2b_LECANEMAB_Swanson_2021.xlsx` | SUVR change from baseline | Placebo, various dosing regimens |
 | **Lecanemab** | Phase 3 | 3 | van Dyck et al. (2022) | `Phase_3_LECANEMAB_van_Dyck_2022.xlsx` | SUVR change from baseline | Placebo, Lecanemab treatment |
 | **Donanemab** | TRAILBLAZER-ALZ 2 | 3 | [Sims JR, Zimmer JA, Evans CD, et al. (2023)](https://doi.org/10.1001/jama.2023.13239) | `Ph_3_DONANEMAB_Sims_2023.xlsx` | Amyloid PET (Centiloids) | Placebo, Donanemab (Low/medium tau, Combined) |
+| **Gantenerumab** | DIAN-TU | 2/3 | [Bateman RJ et al. (2025)](https://doi.org/10.1016/S1474-4422(25)00024-9) | `DIAN-TU_GANT.xlsx` | Amyloid PET (Centiloids), CSF AB42/40 | Gantenerumab treatment in DIAN-TU study 
+
 
 *Note: All data files are located in the `data/SUVR/` directory. SUVR = Standardized Uptake Value Ratio.*
 
@@ -78,3 +80,20 @@ The repository includes empirical data from multiple clinical trials showing SUV
 ![Amyloid PET Reduction from Donanemab Phase 3 Study](figures/empirical_data/DONANEMAB_Phase3_Amyloid_PET.png)
 
 *Figure 5: Amyloid PET levels (Centiloids) over time for Donanemab Phase 3 clinical trial. Data shows placebo and Donanemab treatment groups for both Low/medium tau and Combined cohorts. Donanemab groups show significant reduction in amyloid burden, while placebo groups remain stable. Data from [Sims JR, Zimmer JA, Evans CD, et al. (2023)](https://doi.org/10.1001/jama.2023.13239), TRAILBLAZER-ALZ 2 clinical trial.*
+
+### Gantenerumab
+
+#### DIAN-TU Study
+- **File**: `data/SUVR/DIAN-TU_GANT.xlsx`
+- **Study**: DIAN-TU clinical trial
+- **Reference**: [Bateman RJ et al. (2025)](https://doi.org/10.1016/S1474-4422(25)00024-9)
+- **Measure**: Amyloid PET levels (Centiloids) and CSF AB42/40 CentiMarker
+- **Conditions**: Gantenerumab treatment in DIAN-TU study
+- **Time Points**: OLE Baseline, 0, 1, 2, and 3 years
+- **Units**: Dimensionless Centiloid and CentiMarker values
+- **Data**: Includes both amyloid PET measurements (Centiloids) and cerebrospinal fluid biomarker measurements (CSF AB42/40 CentiMarker) showing reduction in amyloid burden over time with Gantenerumab treatment
+
+![DIAN-TU Gantenerumab Data](figures/empirical_data/DIAN_TU_Gantenerumab.png)
+
+*Figure 6: DIAN-TU study data showing Amyloid PET (Centiloids) and CSF AB42/40 CentiMarker changes over time with Gantenerumab treatment. The data demonstrates reduction in amyloid burden as measured by both imaging and cerebrospinal fluid biomarkers. Data from [Bateman RJ et al. (2025)](https://doi.org/10.1016/S1474-4422(25)00024-9), DIAN-TU clinical trial.*
+
